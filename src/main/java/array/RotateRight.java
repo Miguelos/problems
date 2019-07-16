@@ -1,6 +1,6 @@
 package array;
 
-public class RotateRightArray {
+public class RotateRight {
 
   public static void main(String[] args) {
     rotateArray(new int[]{1, 2, 3, 4, 5, 6}, 4);
@@ -8,8 +8,10 @@ public class RotateRightArray {
 
   /**
    * Recursive solution.
+   *
    * <p>
-   * Time complexity: O(N) Space complexity: O(1)
+   * Time complexity: O(N). Space complexity: O(1).
+   * </p>
    */
   public static void rotateArray(int[] nums, int k) {
     if (nums.length <= 1) {
