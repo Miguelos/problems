@@ -98,6 +98,7 @@ public class MaximizeProfit {
    * Time complexity: O(N). Space complexity: O(1).
    *
    * @param prices array with p
+   * @param fee applied to each transaction
    * @return maximum profit
    */
   public static int maxProfitFeeN(int[] prices, int fee) {
@@ -108,6 +109,37 @@ public class MaximizeProfit {
       long prevBuy = mBuy;
       mBuy = Math.max(mBuy, mSell + price - fee);
       mSell = Math.max(mSell, prevBuy - price);
+    }
+
+    return (int) mBuy;
+  }
+
+
+  /**
+   * Say you have an array for which the ith element is the price of a given stock on day i.
+   *
+   * Design an algorithm to find the maximum profit. You may complete as many transactions as you
+   * like (ie, buy one and sell one share of the stock multiple times) with the following
+   * restrictions:
+   *
+   * You may not engage in multiple transactions at the same time (ie, you must sell the stock
+   * before you buy again). After you sell your stock, you cannot buy stock on next day. (ie,
+   * cooldown 1 day)
+   *
+   * @param prices array with p
+   * @return maximum profit
+   */
+  public static int maxProfitCooldownN(int[] prices) {
+    long mBuy = 0;
+    long mSell = Integer.MIN_VALUE;
+
+    long prevBuy2 = mBuy;
+    long prevBuy = mBuy;
+    for (int price : prices) {
+      prevBuy2 = prevBuy;
+      prevBuy = mBuy;
+      mBuy = Math.max(mBuy, mSell + price);
+      mSell = Math.max(mSell, prevBuy2 - price);
     }
 
     return (int) mBuy;
