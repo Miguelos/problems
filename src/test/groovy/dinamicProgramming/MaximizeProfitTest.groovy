@@ -20,4 +20,18 @@ class MaximizeProfitTest extends GroovyTestCase {
     testArray = [7, 6, 4, 3, 1] as int[]
     assert MaximizeProfit.maxProfitN(testArray) == 0
   }
+
+  void testMaxProfitFeeN() {
+    def testArray = [1, 3, 7, 5, 10, 3] as int[]
+    assert MaximizeProfit.maxProfitFeeN(testArray, 2) == 7
+
+    testArray = [1, 3, 2, 8, 4, 9] as int[]
+    assert MaximizeProfit.maxProfitFeeN(testArray, 2) == 8
+
+    testArray = [1, 3, 7, 5, 10, 3] as int[]
+    assert MaximizeProfit.maxProfitFeeN(testArray, 5) == 4
+
+    testArray = [7, 6, 4, 3, 1] as int[]
+    assert MaximizeProfit.maxProfitFeeN(testArray, 3) == 0
+  }
 }
